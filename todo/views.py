@@ -15,6 +15,11 @@ def inserir_tarefa(request):
     if request.method=="POST":
         formulario = TarefaForm(request.POST)
         formulario.save()
-        return redirect(mostrar_tarefas)
-
+        return redirect("todo:listar")
     return render(request, "todo/adicionar.html", {'formulario':formulario})
+
+def eliminar_tarefa(request, id):
+    tarefa=Tarefa.objects.filter(pk=id)
+    tarefa.delete()
+    return redirect("todo:listar")
+

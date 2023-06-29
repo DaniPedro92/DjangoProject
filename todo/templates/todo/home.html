@@ -1,7 +1,9 @@
-<h1>Lista de tarefas</h1>
+<h1>Lista de tarefas para ver a bola:</h1>
 
 {% for x in tarefas %}
 
-<p>{{ x.titulo }}</p>
+<p>● {{x}} ->
+    <a href={% url 'todo:eliminar' x.id %}> Apagar</a>
+</p>
 
 {% endfor %}
