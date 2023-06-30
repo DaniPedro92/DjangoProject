@@ -1,9 +1,22 @@
+{% load static %}
 <h1>Lista de tarefas para ver a bola:</h1>
+
+<hr>
+<br>
+
+<a href="{% url 'todo:inserir' %}">
+    <img src="{% static 'plus-circle.svg' %}" title="adicionar tarefa">
+</a>
+
+<br>
+<br>
 
 {% for x in tarefas %}
 
-<p>● {{x}} ->
-    <a href={% url 'todo:eliminar' x.id %}> Apagar</a>
+<p>● {{x}}
+    <a href="{% url 'todo:eliminar' x.id %}">
+        <img src="{% static 'trash3.svg' %}" title="remover tarefa">
+    </a>
 </p>
 
 {% endfor %}
