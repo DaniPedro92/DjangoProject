@@ -23,3 +23,13 @@ def eliminar_tarefa(request, id):
     tarefa.delete()
     return redirect("todo:listar")
 
+def editar_tarefa(request, id):
+    tarefa = Tarefa.objects.get(pk=id)
+    formulario = TarefaForm(instance=tarefa)
+    if request.method=="POST":
+        formulario = TarefaForm(request.POST, instance=tarefa)
+        formulario.save()
+        return redirect("todo:listar")
+    return render(request, "todo/editar.html", {'formulario':formulario})
+
+

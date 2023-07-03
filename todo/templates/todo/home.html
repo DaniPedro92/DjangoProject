@@ -15,8 +15,10 @@
 
 <p>● {{x}}
     <a href="{% url 'todo:eliminar' x.id %}">
-        <img src="{% static 'trash3.svg' %}" title="remover tarefa">
-    </a>
+        <img src="{% static 'trash3.svg' %}" title="remover tarefa"></a>
+    
+    <a href="{% url 'todo:editar' x.id %}">
+        <img src="{% static 'pencil.svg' %}" title="alterar tarefa"></a>
 </p>
 
 {% endfor %}
