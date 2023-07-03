@@ -1,0 +1,18 @@
+<h1>novo post</h1>
+<style>
+
+</style>
+
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <table>
+    {{ form.as_table }}
+    </table>
+    <tr>
+        <td>
+            <button>adicionar</button>
+        </td><td></td>
+    </tr>
+    </table>
+
+</form>
