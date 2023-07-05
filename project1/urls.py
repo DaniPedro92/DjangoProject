@@ -20,6 +20,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
+    path('livraria/', include('livraria.urls')),
     path('posts/', include('posts.urls')),
     path('todo/', include('todo.urls')),
     path('app1/', include('app1.urls')),
