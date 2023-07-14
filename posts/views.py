@@ -12,6 +12,5 @@ class Home(ListView):
 class CreatePost(CreateView):
     model = Post
     form_class = PostForm
-    template_name = 'posts/add.html'    
+    template_name = 'posts/add.html'
     success_url = reverse_lazy("posts:home")
-

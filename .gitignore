@@ -1,3 +1,7 @@
+#não incluir todos os ficheiros zip!
 *.zip
-
+# não incluir a pasta docs
 docs/
+
+
+

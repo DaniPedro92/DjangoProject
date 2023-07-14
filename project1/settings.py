@@ -20,7 +20,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-lja_xe#(ht)ce3^^wu=4#kcbrigg5s$f7j*7t$1&%dmq4p1pph'
+SECRET_KEY = 'django-insecure-clw-thjt@vsip@-zdwml%)h(x$yvketz!$=frjdgk!5iq4e8d4'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -40,8 +40,10 @@ INSTALLED_APPS = [
     'app1',
     'todo',
     'posts',
-    'livraria', 
+    'livraria',
 ]
+
+# para comentar no vs code podemos fazer ctrl + ~
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -126,7 +128,12 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-STATICFILES_DIRS = [
-    BASE_DIR / "static",
-    #'/var/www/static/',
+STATICFILES_DIRS = [ 
+    BASE_DIR / "static", 
+    # '/var/www/static/', 
 ]
+'''
+import os
+MEDIA_URL=''
+MEDIA_ROOT= os.path.join(BASE_DIR,'')
+'''

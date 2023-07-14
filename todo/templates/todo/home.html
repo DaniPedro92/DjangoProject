@@ -1,24 +1,21 @@
 {% load static %}
-<h1>Lista de tarefas para ver a bola:</h1>
+<h1>lista de tarefas</h1>
 
-<hr>
-<br>
-
-<a href="{% url 'todo:inserir' %}">
-    <img src="{% static 'plus-circle.svg' %}" title="adicionar tarefa">
+<a href="{% url 'todo:inserir'  %}">
+  <img src="{% static 'plus-circle.svg' %}" title="adicionar tarefa">
 </a>
 
-<br>
-<br>
 
 {% for x in tarefas %}
 
-<p>● {{x}}
-    <a href="{% url 'todo:eliminar' x.id %}">
-        <img src="{% static 'trash3.svg' %}" title="remover tarefa"></a>
-    
-    <a href="{% url 'todo:editar' x.id %}">
-        <img src="{% static 'pencil.svg' %}" title="alterar tarefa"></a>
-</p>
+  <p>{{x}}  
+             <a href="{% url 'todo:eliminar' x.id %}">
+              <img src="{% static 'trash3.svg' %}" title="remover tarefa"></a>
+
+             <a href="{% url 'todo:editar' x.id %}">
+              <img src="{% static 'pencil.svg' %}" title="alterar tarefa">
+            </a>
+  </p>
 
 {% endfor %}
+

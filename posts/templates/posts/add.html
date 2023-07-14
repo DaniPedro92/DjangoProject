@@ -6,13 +6,9 @@
 <form method="post" enctype="multipart/form-data">
     {% csrf_token %}
     <table>
-    {{ form.as_table }}
-    </table>
+    {{ form.as_table}}
     <tr>
-        <td>
-            <button>adicionar</button>
-        </td><td></td>
+        <td></td><td><button>adicionar</button></td>
     </tr>
     </table>
-
 </form>

@@ -1,9 +1,16 @@
-<h1>Novo Livro</h1>
+{% extends "livraria/base.html" %}
 
-<form method="post" enctype="multipart/form-data">
+{% block conteudo %}
 
-    {% csrf_token %}
-    {{ formulario.as_p}}
-    <button>adicionar</button>
+    <h1>Novo Livro</h1>
 
-</form>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+    
+        {{ formulario.as_p}}
+
+        <button>adicionar</button>
+
+    </form>
+
+{% endblock %}

@@ -1,16 +1,15 @@
 <h1>POSTS</h1>
-
 <style>
-    #link_novo {position:absolute; top: 10px; right: 10px }
+    /* #link_novo { position:absolute; top: 10px; right:10px } */
 </style>
-
-<a href="{% url 'posts:add' %}">novo</a>
+<!-- a anchor -->
+<a id="link_novo" href="{% url 'posts:add' %}">novo</a>
+<br>
 
 {% for x in object_list %}
-
 <p>
     {{ x.titulo }}
-
-    <img src="{{ x.imagem.url }}">
+    <br>
+    <img src="{{ x.imagem.url }}" width="400">
 </p>
 {% endfor %}

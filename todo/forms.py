@@ -5,4 +5,5 @@ class TarefaForm(forms.ModelForm):
     class Meta:
         model = Tarefa
         fields = "__all__"
-        #fields = ("titulo", "realizado")
+        #fields = ('titulo',)   
+        #fields = ('titulo','realizado')
