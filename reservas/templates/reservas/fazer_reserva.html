@@ -1,0 +1,58 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Fazer Reserva</title>
+    <style>
+        .container {
+            position: relative;
+        }
+        .corner-image {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="{% static 'somisis.jpg' %}" class="corner-image">
+        <h1>Fazer Reserva</h1>
+    </div>
+    <br>
+    {% if messages %}
+        {% for message in messages %}
+            <p>{{ message }}</p>
+        {% endfor %}
+    {% endif %}
+    <form method="POST">
+        {% csrf_token %}
+
+        <label for="id_pessoa">Pessoa:</label>
+        <select name="pessoa" id="id_pessoa">
+            {% for pessoa in pessoas %}
+                <option value="{{ pessoa.id }}">{{ pessoa.nome }}</option>
+            {% endfor %}
+        </select>
+        <br><br>
+
+        <label for="id_ferramenta">Ferramenta:</label>
+        <select name="ferramenta" id="id_ferramenta">
+            {% for ferramenta in ferramentas %}
+                <option value="{{ ferramenta.id }}">{{ ferramenta.titulo }} - Stock: {{ ferramenta.stock }}</option>
+            {% endfor %}
+        </select>
+        <br><br>
+
+        <label for="id_quantidade">Quantidade:</label>
+        <input type="number" name="quantidade" id="id_quantidade" min="1" required>
+        <br><br>
+
+        <label for="id_data_reserva">Data da Reserva:</label>
+        <input type="date" name="data_reserva" id="id_data_reserva">
+        <br><br>
+        <button type="submit">Fazer Reserva</button>
+    </form>
+</body>
+</html>
+

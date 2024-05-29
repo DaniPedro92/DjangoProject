@@ -1,0 +1,53 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lista de Reservas</title>
+    <style>
+        .container {
+            position: relative;
+        }
+        .corner-image {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="{% static 'somisis.jpg' %}" class="corner-image" alt="somisis">
+    </div>
+    <h1>Lista de Reservas</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Ferramenta</th>
+                <th>Pessoa</th>
+                <th>Data da Reserva</th>
+                <th>Quantidade</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for reserva in reservas %}
+                <tr>
+                    <td>{{ reserva.ferramenta }}</td>
+                    <td>{{ reserva.pessoa }}</td>
+                    <td>{{ reserva.data_reserva }}</td>
+                    <td>{{ reserva.ferramenta.stock }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
+

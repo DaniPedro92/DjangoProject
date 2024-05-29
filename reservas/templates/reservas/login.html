@@ -1,0 +1,38 @@
+{% extends 'reservas/base2.html' %}
+
+{% load static %}
+
+{% block content %}
+  <div class="corner-container">
+    <img src="{% static 'somisis.jpg' %}" class="corner-image" alt="somisis">
+  </div>
+  <h2>Login</h2>
+  {% if messages %}
+    {% for message in messages %}
+      <p class="message">{{ message }}</p>
+    {% endfor %}
+  {% endif %}
+  <form method="POST" action="{% url 'reservas:login' %}">
+    {% csrf_token %}
+    <div class="form-group">
+      <label for="id_username">Usuário:</label>
+      <input type="text" name="username" id="id_username">
+    </div>
+    <br>
+    <div class="form-group">
+      <label for="id_password">Senha:</label>
+      <input type="password" name="password" id="id_password">
+    </div>
+    <br>
+    <button type="submit">Entrar</button>
+  </form>
+{% endblock %}
+
+
+
+
+
+
+
+
+

@@ -1,3 +1,4 @@
+import os
 """
 Django settings for project1 project.
 
@@ -41,6 +42,9 @@ INSTALLED_APPS = [
     'todo',
     'posts',
     'livraria',
+    'listaferramentas',
+    'registro',
+    'reservas',
 ]
 
 # para comentar no vs code podemos fazer ctrl + ~
@@ -60,7 +64,10 @@ ROOT_URLCONF = 'project1.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [
+            os.path.join(BASE_DIR, 'reservas', 'templates'),
+            os.path.join(BASE_DIR, 'project1', 'templates'),
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -137,3 +144,5 @@ import os
 MEDIA_URL=''
 MEDIA_ROOT= os.path.join(BASE_DIR,'')
 '''
+
+LOGIN_REDIRECT_URL = '/reservas/fazer_reserva/'

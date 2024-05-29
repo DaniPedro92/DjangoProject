@@ -18,8 +18,13 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
+from .views import home
 
 urlpatterns = [
+    path('', home, name='paginainicial'),
+    path('reservas/', include('reservas.urls')),
+    path('registro/', include('registro.urls')),
+    path('listaferramentas/', include('listaferramentas.urls')),
     path('livraria/', include('livraria.urls')),
     path('posts/', include('posts.urls')),
     path('todo/', include('todo.urls')),

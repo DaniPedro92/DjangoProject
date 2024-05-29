@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Registro de Pessoas</title>
+</head>
+<body>
+  <h1>Registro de Pessoas</h1>
+  
+  <form method="post" action="{% url 'registro:registration' %}">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Registrar">
+  </form>
+  
+  <a href="{% url 'registro:lista_pessoas' %}">Ver lista de pessoas registradas</a>
+</body>
+</html>

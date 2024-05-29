@@ -1,0 +1,32 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Meu Site</title>
+    {% load static %} <!-- Carregar as tags estáticas do Django -->
+    <!-- Incluir links para arquivos de estilo CSS -->
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <header>
+        <!-- Seu cabeçalho comum -->
+        <!-- Inclua o código HTML do cabeçalho aqui -->
+    </header>
+
+    <main>
+        <!-- O conteúdo específico da página será renderizado aqui -->
+        {% block content %}
+        {% endblock %}
+    </main>
+
+    <footer>
+        <!-- Seu rodapé comum -->
+        <!-- Inclua o código HTML do rodapé aqui -->
+    </footer>
+
+    <!-- Incluir scripts JavaScript -->
+    <script src="{% static 'js/script.js' %}"></script>
+</body>
+</html>
+
+
