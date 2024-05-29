@@ -1,0 +1,23 @@
+{% extends 'reservas/base2.html' %}
+
+{% load static %}
+
+{% block content %}
+  <div class="corner-container">
+    <img src="{% static 'somisis.jpg' %}" class="corner-image" alt="somisis">
+  </div>
+  <h2>Sign Up</h2>
+  {% if messages %}
+    {% for message in messages %}
+      <p class="message">{{ message }}</p>
+    {% endfor %}
+  {% endif %}
+  <form method="POST" action="{% url 'registro:signup' %}">
+    {% csrf_token %}
+    {{ user_form.as_p }}
+    {{ pessoa_form.as_p }}
+    <br>
+    <button type="submit">Registar</button>
+  </form>
+{% endblock %}
+

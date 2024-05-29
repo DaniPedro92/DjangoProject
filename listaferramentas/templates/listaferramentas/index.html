@@ -1,0 +1,47 @@
+{% extends "listaferramentas/base.html" %}
+
+{% block head %}
+<style>
+  .book {
+    width: 300px;
+    border: 1px solid black;
+    padding: 5px;
+    margin: 10px;
+    float: left;
+    height: 60vh;
+    text-align: center;
+  }
+  .imagem_principal {
+    width: 90%;
+    height: 70%;
+    object-fit: contain;
+    margin-bottom: 10px;
+    transition: transform 0.2s ease;
+  }
+  .imagem_principal:hover {
+    transform: scale(1.2);
+  }
+</style>
+{% endblock %}
+
+{% block conteudo %}
+
+  <h1>Ferramentas</h1>
+  {% load static %}
+  <p><a href="{% url 'listaferramentas:add' %}">adicionar ferramenta  <img src="{% static 'plus-circle.svg' %}"></a></p>
+
+  {% for x in ferramentas %}
+    <div class="book">
+        <h2>{{x.titulo}}</h2>
+        {% if x.imagem %}
+          <img src="{{x.imagem.url}}" class="imagem_principal" />
+        {% else %}
+          <p>Imagem não disponível</p>
+        {% endif %}
+        <br>
+        <a href="{% url 'listaferramentas:delete' x.id %}"><img src="{% static 'trash3.svg' %}"></a>
+        <a href="{% url 'listaferramentas:edit' x.id %}"><img src="{% static 'pencil.svg' %}"></a>
+    </div>
+  {% endfor %}
+
+{% endblock %}

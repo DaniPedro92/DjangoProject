@@ -1,0 +1,40 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Página Inicial</title>
+    <link rel="stylesheet" href="{% static 'reservas/styles.css' %}">
+    <style>
+        body {
+            background-image: url("{% static 'industria_celulose.jpg' %}"); 
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="{% static 'somisis.png' %}" class="corner-image" alt="somisis">
+    </div>
+    <div class="top-container">
+        <h1>Somisis - Página Inicial (Registros, Reservas, Inventário)</h1>
+    </div>
+    <ul>
+        <li><a href="{% url 'listaferramentas:index' %}">Lista de Ferramentas</a></li>
+        <br>
+        <li><a href="{% url 'registro:lista_pessoas' %}">Registro</a></li>
+        <br>
+        <li><a href="{% url 'reservas:login' %}">Reservas</a></li>
+    </ul>
+    <br><br>
+    <p>
+        Site Oficial -> <a href="https://www.somisis.pt/">LINK</a>
+    </p>
+</body>
+</html>
+
+
+
+
+
+

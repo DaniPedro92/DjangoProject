@@ -1,0 +1,41 @@
+{% extends "livraria/base.html" %}
+
+{% block head %}
+<style>
+  .book {width: 300px;
+    border:1px solid black;
+    padding:5px;
+    margin:10px;
+    float:left;
+    height:60vh;
+    text-align: center;
+  }
+  .imagem_principal { 
+      width: 90%; 
+      /* display:block; margin:auto;  */
+      height: 70%;
+      object-fit: contain;
+      margin-bottom:10px;
+  }
+</style>
+{% endblock %}
+
+{% block conteudo %}
+
+  <h1>Livros</h1>
+  {% load static %}
+  <p><a href="{% url 'livraria:add' %}">adicionar livro  <img src="{% static 'plus-circle.svg' %}"></a></p>
+
+  {% for x in livros %}
+    <div class="book">
+        <h2>{{x.titulo}}</h2>
+        {% if x.imagem %}
+          <img src="{{x.imagem.url}}" class="imagem_principal" />
+        {% endif %}
+        <br>
+        <a href="{% url 'livraria:delete' x.id %}"><img src="{% static 'trash3.svg' %}"></a>
+        <a href="{% url 'livraria:edit' x.id %}"><img src="{% static 'pencil.svg' %}"></a>
+    </div>
+  {% endfor %}
+
+{% endblock %}
